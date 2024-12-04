@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container rounded-3 col-lg-5 col-md-7 col-9 shadow px-3 my-lg-5 my-md-5 mt-3">
+        <h2 class="text-center pt-2">Compatibility Tester</h2>
+        <div id="fill" class="fw-medium text-center alert alert-danger p-0" style="display: none;">Fill in the input</div>
+            <input class="form-control shadow-none py-2" type="text" id="yourname" placeholder="Enter your name">
+            <input class="form-control shadow-none py-2 mt-2" type="text" id="lovername" placeholder="Lover's Name">
+            <div class="text-center mt-4">
+                <button id="check" class=" rounded-5 w-50 border-0 py-2 fw-bold mb-2 bg-primary-subtle">Check</button>
+            </div>
+            <div id="show" class="text-center text-white fw-bold"></div>
+    </div>
+
+    <script>
+        const submit = document.getElementById('check')
+        const enterName = document.getElementById('yourname')
+        const loverName = document.getElementById('lovername')
+        
+        submit.addEventListener('click', ()=>{
+            const run = Math.round(Math.random()*100)
+            if(enterName.value === '' || loverName.value === '') {
+                fill.style.display = 'block'
+                setTimeout(() => {
+                    fill.style.display = 'none'
+                },2000)
+                    
+            }else if (run == 0 || run <= 40){
+                    show.innerHTML += `<P> Love Match Percent: ${run}%</P> <p>Your love might need a GPS because it's lost</p>`
+                    setTimeout(() =>{
+                        show.innerHTML= ''
+                    },2000)
+            }else if (run == 41 || run <=50){
+                    show.innerHTML += `<P> Love Match Percent: ${run}%</P> <p>Oof, your love score is bad,  there’s chance for improvement..</p>`
+                    setTimeout(() =>{
+                        show.innerHTML= ''
+                    },2000)
+            }else if (run == 51 || run <=60){
+                    show.innerHTML += `<P> Love Match Percent: ${run}%</P> <p> Not bad! add some spice and you're good to go</p>`
+                    setTimeout(() =>{
+                        show.innerHTML= ''
+                    },2000)
+            }else if (run == 61 || run <= 70) {
+                    show.innerHTML += `<P> Love Match Percent: ${run}%</P> <p> Decent connection, but it might drop if you're not careful</p>`
+                    setTimeout(() =>{
+                        show.innerHTML= ''
+                    },2000)
+            }else if (run == 71 || run <= 100) {
+                    show.innerHTML += `<P> Love Match Percent: ${run}%</P> <p> Decent connection, but it might drop if you're not careful</p>`
+                    setTimeout(() =>{
+                        show.innerHTML= ''
+                    },2000)
+            }
+            enterName.value = ''
+            loverName.value = '' 
+        })
+    </script>
+</body>
+</html>
